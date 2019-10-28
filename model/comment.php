@@ -36,7 +36,8 @@ class comment
     $req=$this->bdd->prepare("INSERT INTO comment(name,user_id) VALUES (:name,:id)");
     $req->execute(array(
       'name'=> $this->getMessage(),
-        'id'=> $user_id
+        'id'=> $user_id,
+
     ));
     echo "Message enregistrer";
   }
@@ -44,9 +45,10 @@ class comment
   {
     $req=$this->bdd->prepare('SELECT * FROM comment ORDER BY ID ASC LIMIT 0, 10');
     $req->execute(array());
-    $donnees= $req->fetch();
-    var_dump($donnees['name']);
-      return $donnees['name'];
+    while ($donnees= $req->fetch()) {;
+    echo $donnees['name'].'<br/>';
+  }
+      // return $donnees['name'];
 
     }
 

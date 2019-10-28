@@ -1,5 +1,5 @@
 <?php session_start();?>
-
+<? require ('../controlleur/commentControl.php');?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -32,13 +32,16 @@
 </div>
     </div>
     <div class="">
-      <form class="" action="../controlleur/viewMessage.php" method="post">
+      <!-- ici on envoie le message a sauvegarder et aussi a afficher -->
+      <form class="" action="../controlleur/commentControl.php" method="post">
         <label for="message">message</label>
         <input type="text" name="text" value="text">
         <input type="submit" name="envoyer" value="envoyer">
       </form>
     </div>
-    <?php
-    echo $instance->viewMessage(); ?>
+    <form class="" action="../controlleur/viewMessage.php" method="post">
+      <input type="submit" name="messagege" value="voir mesasge">
+    </form>
+<!-- <?php echo('f'.$_COOKIE['Viewmessage']); ?> -->
   </body>
 </html>

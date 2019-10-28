@@ -1,6 +1,8 @@
 <?php
-//require ('../view/index.html');
 require ('../model/comment.php');
-$instance = new comment($_POST['text'],$bdd);
-$instance->viewMessage();
+setcookie('viewmessage',$x);
+$instance = new comment('y',$bdd);
+$x= $instance->viewMessage();
+var_dump($x);
+// header("refresh:5;url=../view/index.php");
 require ('../view/index.php');
